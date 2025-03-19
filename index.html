@@ -3,26 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>অটো ইমেজ স্লাইডার</title>
+    <title>ইমেজ স্লাইডার</title>
     <style>
         /* সাধারণ স্টাইল */
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            font-family: Arial, sans-serif;
             background-color: #f0f0f0;
         }
 
         /* স্লাইডার কন্টেইনার */
         .slider-container {
-            position: relative;
-            width: 80%;
-            max-width: 800px;
+            width: 100%; /* প্রস্থ match_parent */
+            height: 199px; /* উচ্চতা 199dp */
             overflow: hidden;
+            position: relative;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
@@ -31,6 +27,8 @@
         .slider {
             display: flex;
             transition: transform 0.5s ease-in-out;
+            width: 100%;
+            height: 100%;
         }
 
         /* প্রতিটি স্লাইড */
@@ -42,60 +40,25 @@
         /* ছবি */
         .slide img {
             width: 100%;
-            display: block;
+            height: 100%;
+            object-fit: cover; /* ছবি কভার করে দেখাবে */
         }
 
         /* ছবির উপর টেক্সট */
         .slide-text {
             position: absolute;
-            bottom: 20px;
-            left: 20px;
-            right: 20px;
+            bottom: 10px; /* উচ্চতা কম করা হয়েছে */
+            left: 10px;
+            right: 10px;
             background-color: rgba(0, 0, 0, 0.5); /* ট্রান্সপারেন্ট ব্যাকগ্রাউন্ড */
             color: white;
-            padding: 10px;
+            padding: 8px;
             border-radius: 5px;
             text-align: center;
-        }
-
-        /* ছবির সংখ্যা দেখানোর জন্য */
-        .slide-counter {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 5px;
             font-size: 14px;
         }
 
-        /* নেভিগেশন বাটন */
-        .prev, .next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            border-radius: 50%;
-            font-size: 18px;
-            transition: background-color 0.3s ease;
-        }
-
-        .prev:hover, .next:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-
-        .prev {
-            left: 10px;
-        }
-
-        .next {
-            right: 10px;
-        }
+        /* নেভিগেশন বাটন সরানো হয়েছে */
     </style>
 </head>
 <body>
@@ -107,40 +70,42 @@
         <div class="slide">
             <img src="https://i.ytimg.com/vi/llRcTad1kS8/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLD0HepABDmZVFL-HnAMQjUCyvlXVA" alt="ছবি ১">
             <div class="slide-text">
-                <h2>ছবি ১</h2>
-                <p>এই ছবিটি প্রথম ছবি।</p>
+                <h2>যশোরের যশ খেজুরের রস</h2>
+                <p></p>
             </div>
-            <div class="slide-counter">১/৩</div>
         </div>
         <!-- দ্বিতীয় স্লাইড -->
         <div class="slide">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYnjYW8J3QDuWWNEwH7ZKURESs8h-gwE2tdNXq2TNsU39Gq99NvlkAlPVIUZU6_YQFUvU&usqp=CAU" alt="ছবি ২">
             <div class="slide-text">
-                <h2>ছবি ২</h2>
-                <p>এই ছবিটি দ্বিতীয় ছবি।</p>
+                <h2>যশোর যার, সুখ তার</h2>
+                <p></p>
             </div>
-            <div class="slide-counter">২/৩</div>
         </div>
         <!-- তৃতীয় স্লাইড -->
         <div class="slide">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDMRHJIm7h6Dzy72Y126krGh4WapYLh-q0jg&s" alt="ছবি ৩">
             <div class="slide-text">
-                <h2>ছবি ৩</h2>
-                <p>এই ছবিটি তৃতীয় ছবি।</p>
+                <h2>যশোরে যা হয়, দেশে তা কয়</h2>
+                <p></p>
             </div>
-            <div class="slide-counter">৩/৩</div>
+        </div>
+        <!-- দ্বিতীয় স্লাইড -->
+        <div class="slide">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYnjYW8J3QDuWWNEwH7ZKURESs8h-gwE2tdNXq2TNsU39Gq99NvlkAlPVIUZU6_YQFUvU&usqp=CAU" alt="ছবি ২">
+            <div class="slide-text">
+                <h2>যশোরের যশ খেজুরের রস</h2>
+                <p>ছবি-৪</p>
+            </div>
         </div>
     </div>
-
-    <!-- নেভিগেশন বাটন -->
-    <button class="prev" onclick="prevSlide()">&#10094;</button>
-    <button class="next" onclick="nextSlide()">&#10095;</button>
 </div>
 
 <script>
     let currentSlide = 0;
     const slides = document.querySelectorAll('.slide');
     const totalSlides = slides.length;
+    const slider = document.querySelector('.slider');
     let autoSlideInterval;
 
     // পরবর্তী স্লাইডে যাওয়ার ফাংশন
@@ -149,23 +114,10 @@
         updateSlider();
     }
 
-    // পূর্ববর্তী স্লাইডে যাওয়ার ফাংশন
-    function prevSlide() {
-        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-        updateSlider();
-    }
-
     // স্লাইডার আপডেট করার ফাংশন
     function updateSlider() {
-        const slider = document.querySelector('.slider');
         const offset = -currentSlide * 100;
         slider.style.transform = `translateX(${offset}%)`;
-
-        // ছবির সংখ্যা আপডেট করুন
-        const counters = document.querySelectorAll('.slide-counter');
-        counters.forEach((counter, index) => {
-            counter.textContent = `${currentSlide + 1}/${totalSlides}`;
-        });
     }
 
     // অটো স্লাইড শুরু করার ফাংশন
@@ -185,6 +137,39 @@
     const sliderContainer = document.querySelector('.slider-container');
     sliderContainer.addEventListener('mouseenter', stopAutoSlide);
     sliderContainer.addEventListener('mouseleave', startAutoSlide);
+
+    // হাত দিয়ে স্লাইড করার জন্য ইভেন্ট লিসেনার যোগ করুন
+    let isDragging = false;
+    let startPosX = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+
+    sliderContainer.addEventListener('touchstart', (e) => {
+        isDragging = true;
+        startPosX = e.touches[0].clientX;
+        prevTranslate = currentTranslate;
+    });
+
+    sliderContainer.addEventListener('touchmove', (e) => {
+        if (isDragging) {
+            const currentPosX = e.touches[0].clientX;
+            currentTranslate = prevTranslate + currentPosX - startPosX;
+            slider.style.transform = `translateX(${currentTranslate}px)`;
+        }
+    });
+
+    sliderContainer.addEventListener('touchend', () => {
+        isDragging = false;
+        const movedBy = currentTranslate - prevTranslate;
+
+        if (movedBy < -50 && currentSlide < totalSlides - 1) {
+            currentSlide++;
+        } else if (movedBy > 50 && currentSlide > 0) {
+            currentSlide--;
+        }
+
+        updateSlider();
+    });
 </script>
 
 </body>
